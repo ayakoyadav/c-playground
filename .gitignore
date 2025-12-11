@@ -53,3 +53,19 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# macOS
+.DS_Store
+
+# Editor/IDE
+*.swp
+*~
+.vscode/
+.idea/
+*.code-workspace
+
+# clangd / tooling
+compile_commands.json
+
+# Local build / binary output
+build/
