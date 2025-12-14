@@ -12,6 +12,13 @@ struct employee_t {
     int team_id;
 };
 
+// ensure that the complier doesn't madd any space in between the elements,
+// so the size will be 5 bytes across multiple systems
+struct __attribute__((__packed__)) my_struct_t {
+    int i;
+    char c;
+};
+
 int main() {
     struct employee_t employees[MAX_EMPLOYEES] = {0};
     
@@ -24,6 +31,8 @@ int main() {
                 employees[i].income,
                 employees[i].is_manager ? "yes" : "no");
     }
+    // %zu: z is the type of sizeof return, u is the format for unsigned decimal
+    printf("Size of my_struct_t: %zu bytes\n", sizeof(struct my_struct_t));
 
     return 0;
 }
